@@ -1,0 +1,71 @@
+{
+  "name": "slack-message-parser",
+  "version": "0.0.1",
+  "description": "Parser for Slack message",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "test": "jest",
+    "lint": "tslint -c tslint.json 'src/**/*.ts'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pocka/slack-message-parser.git"
+  },
+  "keywords": [
+    "slack"
+  ],
+  "author": "pocka",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pocka/slack-message-parser/issues"
+  },
+  "homepage": "https://github.com/pocka/slack-message-parser#readme",
+  "devDependencies": {
+    "@types/jest": "^23.3.2",
+    "husky": "^1.0.0-rc.14",
+    "jest": "^23.6.0",
+    "lint-staged": "^7.2.2",
+    "prettier": "^1.14.2",
+    "ts-jest": "^23.1.4",
+    "tslint": "^5.11.0",
+    "tslint-config-prettier": "^1.15.0",
+    "yarn": "^1.9.4"
+  },
+  "dependencies": {
+    "typescript": "^3.0.3"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "jest": {
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+      "src/**/*.ts",
+      "!node_modules/**"
+    ],
+    "transform": {
+      "^.+\\.ts?$": "ts-jest"
+    },
+    "testRegex": "(\\.|/)spec\\.ts$",
+    "moduleFileExtensions": [
+      "ts",
+      "js",
+      "json",
+      "node"
+    ]
+  },
+  "lint-staged": {
+    "*.{ts,md}": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "prettier": {
+    "semi": false,
+    "singleQuote": true
+  }
+}
