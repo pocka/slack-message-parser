@@ -51,13 +51,16 @@
     "transform": {
       "^.+\\.ts?$": "ts-jest"
     },
-    "testRegex": "(\\.|/)spec\\.ts$",
+    "testRegex": "/tests/.*\\.ts$",
     "moduleFileExtensions": [
       "ts",
       "js",
       "json",
       "node"
-    ]
+    ],
+    "moduleNameMapper": {
+      "~/(.*)": "<rootDir>/src/$1"
+    }
   },
   "lint-staged": {
     "*.{ts,md}": [
