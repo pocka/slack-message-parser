@@ -1,4 +1,4 @@
-import { Node } from '~/types/Node'
+import { Node } from './Node'
 
 export type Parser = (
   text: string,

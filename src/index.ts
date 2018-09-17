@@ -1,7 +1,7 @@
-import { Node, NodeType } from '~/types/Node'
-import { ParseText } from '~/types/Parser'
+import { Node, NodeType } from './types/Node'
+import { ParseText } from './types/Parser'
 
-import parser from '~/parser'
+import parser from './parser'
 
 const parseText: ParseText = text => {
   const children: Node[] = []
@@ -52,3 +52,5 @@ export const parse = (message: string): Node => {
 }
 
 export default parse
+
+export * from './types/Node'

@@ -1,4 +1,4 @@
-import { Node, NodeType } from '~/types/Node'
+import { Node, NodeType } from '../src/types/Node'
 
 export const root = (children: Node[]): Node => ({
   type: NodeType.Root,

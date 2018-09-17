@@ -57,10 +57,7 @@
       "js",
       "json",
       "node"
-    ],
-    "moduleNameMapper": {
-      "~/(.*)": "<rootDir>/src/$1"
-    }
+    ]
   },
   "lint-staged": {
     "*.{ts,md}": [

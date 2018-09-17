@@ -1,4 +1,4 @@
-import { parse } from '~/index'
+import { parse } from '../src'
 
 import {
   bold,

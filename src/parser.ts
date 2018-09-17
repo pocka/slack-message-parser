@@ -1,6 +1,6 @@
-import { NodeType } from '~/types/Node'
+import { NodeType } from './types/Node'
 
-import { explicit, or, regexp, topOfLine } from '~/combinator'
+import { explicit, or, regexp, topOfLine } from './combinator'
 
 const parseBold = explicit(
   regexp(

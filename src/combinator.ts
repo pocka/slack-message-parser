@@ -1,5 +1,5 @@
-import { Node } from '~/types/Node'
-import { Parser, ParseText } from '~/types/Parser'
+import { Node } from './types/Node'
+import { Parser, ParseText } from './types/Parser'
 
 export const or = (parsers: Parser[]): Parser => {
   const { length } = parsers
