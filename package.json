@@ -47,6 +47,10 @@
       "src/**/*.ts",
       "!node_modules/**"
     ],
+    "coverageReporters": [
+      "lcov",
+      "text"
+    ],
     "transform": {
       "^.+\\.ts?$": "ts-jest"
     },
