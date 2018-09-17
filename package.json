@@ -36,6 +36,7 @@
   "dependencies": {
     "typescript": "^3.0.3"
   },
+  "sideEffects": false,
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged"
