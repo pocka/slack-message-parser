@@ -3,6 +3,7 @@
 [![npm](https://flat.badgen.net/npm/v/slack-message-parser?icon=npm)](https://www.npmjs.com/package/slack-message-parser)
 [![code style: prettier](https://flat.badgen.net/badge/code%20style/prettier/ff69b4)](https://github.com/prettier/prettier)
 [![travis](https://flat.badgen.net/travis/pocka/slack-message-parser?icon=travis)](https://travis-ci.com/pocka/slack-message-parser#)
+[![codecov](https://flat.badgen.net/codecov/c/github/pocka/slack-message-parser?icon=codecov)](https://codecov.io/gh/pocka/slack-message-parser)
 
 Parser library for [Slack message format](https://api.slack.com/docs/message-formatting).
 
