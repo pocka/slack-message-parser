@@ -31,10 +31,8 @@
     "ts-jest": "^23.1.4",
     "tslint": "^5.11.0",
     "tslint-config-prettier": "^1.15.0",
+    "typescript": "^3.0.3",
     "yarn": "^1.9.4"
-  },
-  "dependencies": {
-    "typescript": "^3.0.3"
   },
   "sideEffects": false,
   "husky": {
