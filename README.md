@@ -1,5 +1,8 @@
 # slack-message-parser
 
+[![npm](https://flat.badgen.net/npm/v/slack-message-parser?icon=npm)](https://www.npmjs.com/package/slack-message-parser)
+[![code style: prettier](https://flat.badgen.net/badge/code%20style/prettier/ff69b4)](https://github.com/prettier/prettier)
+
 Parser library for [Slack message format](https://api.slack.com/docs/message-formatting).
 
 ## Install
