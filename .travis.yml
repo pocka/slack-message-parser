@@ -1,5 +1,9 @@
 language: node_js
 
 script:
+  - yarn global add codecov
   - npm run lint
   - npm test
+
+after_success:
+  - codecov
