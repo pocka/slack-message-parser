@@ -1,0 +1,7 @@
+node_modules
+coverage
+*.log
+tests
+.gitignore
+tsconfig.json
+tslint.json
