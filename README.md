@@ -25,18 +25,18 @@ const tree = slackMessageParser('Slack *message* ~to~ _parse_')
 
 // tree is:
 // {
-//   "type": NodeType.Root,
-//   "children": [
+//   type: NodeType.Root,
+//   children: [
 //     {
-//       "type": NodeType.Text,
-//       "text": "Slack "
+//       type: NodeType.Text,
+//       text: "Slack "
 //     },
 //     {
-//       "type": NodeType.Bold,
-//       "children": [
+//       type: NodeType.Bold,
+//       children: [
 //         {
-//           "type": NodeType.Text,
-//           "text": "message"
+//           type: NodeType.Text,
+//           text: "message"
 //         }
 //       ]
 //     },
@@ -50,7 +50,7 @@ const toHTML = (node: Node): string => {
     case NodeType.Root:
       return `<p>${node.children.map(toHTML).join('')}</p>`
     case NodeType.Text:
-      return `<span>${node.text}</span>`
+      return node.text
     case NodeType.Bold:
       return `<strong>${node.children.map(toHTML).join('')}</strong>`
     case NodeType.Italic:
@@ -65,5 +65,5 @@ const toHTML = (node: Node): string => {
 console.log(toHTML(tree))
 
 // Output:
-// '<p><span>Slack </span><strong><span>message</span></strong><span> </span><del><span>to</span></del><span> </span><i><span>parse</span></i></p>'
+// '<p>Slack <strong>message</strong> <del>to</del> <i>parse</i></p>'
 ```
