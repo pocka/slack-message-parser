@@ -119,8 +119,9 @@ const parseMultilineQuote = topOfLine(
   })
 )
 
-const parseEmoji = explicit(
-  regexp(/^:([^:]+?)(::([^:]+?))?:(?=\s|$)/, (match, text, position) => {
+const parseEmoji = regexp(
+  /^:([^:<]+?)(::([^:]+?))?:/,
+  (match, text, position) => {
     const [matchedText, name, _, variation] = match
 
     return [
@@ -131,7 +132,7 @@ const parseEmoji = explicit(
       },
       position + matchedText.length
     ]
-  })
+  }
 )
 
 const parseLink = regexp(

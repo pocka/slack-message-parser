@@ -148,8 +148,10 @@ describe('Emoji parser', () => {
     expect(parse(':foo::bar:')).toEqual(root([emoji('foo', 'bar')]))
   })
 
-  it('Should not parse "foo:bar:baz" as emoji', () => {
-    expect(parse('foo:bar:baz')).toEqual(root([text('foo:bar:baz')]))
+  it('Should parse "foo:bar:baz" as emoji', () => {
+    expect(parse('foo:bar:baz')).toEqual(
+      root([text('foo'), emoji('bar'), text('baz')])
+    )
   })
 })
 
