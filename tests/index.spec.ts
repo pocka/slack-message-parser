@@ -116,6 +116,13 @@ describe('Link parser', () => {
     ).toEqual(expected)
   })
 
+  // https://github.com/pocka/slack-message-parser/issues/1
+  it('Should parse url contains underscore', () => {
+    expect(parse('<http://foo/bar_baz>')).toEqual(
+      root([url('http://foo/bar_baz')])
+    )
+  })
+
   it('Should not allow nested link', () => {
     expect(parse('<http://foo|<http://bar>>')).toEqual(
       root([text('<http://foo|'), url('http://bar'), text('>')])
