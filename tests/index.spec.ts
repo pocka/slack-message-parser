@@ -102,39 +102,6 @@ describe('Link parser', () => {
   it('Should parse command arguments', () => {
     expect(parse('<!foo^bar>')).toEqual(root([command('foo', ['bar'])]))
   })
-
-  it('Should parse "Visit <http://foo.bar> or email to <mailto:foo@bar>" as url', () => {
-    const expected = root([
-      text('Visit '),
-      url('http://foo.bar'),
-      text(' or email to '),
-      url('mailto:foo@bar')
-    ])
-
-    expect(
-      parse('Visit <http://foo.bar> or email to <mailto:foo@bar>')
-    ).toEqual(expected)
-  })
-
-  it('Should not allow nested link', () => {
-    expect(parse('<http://foo|<http://bar>>')).toEqual(
-      root([text('<http://foo|'), url('http://bar'), text('>')])
-    )
-  })
-
-  it('Should parse label', () => {
-    expect(parse('<http://foo|bar>')).toEqual(
-      root([url('http://foo', [text('bar')])])
-    )
-  })
-
-  it('Should allow formated text in label', () => {
-    const expected = root([
-      url('http://foo', [bold([text('bar '), strike([text('baz')])])])
-    ])
-
-    expect(parse('<http://foo|*bar ~baz~*>')).toEqual(expected)
-  })
 })
 
 describe('Emoji parser', () => {
