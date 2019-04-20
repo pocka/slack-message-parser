@@ -4,7 +4,7 @@ import { explicit, or, regexp, topOfLine } from './combinator'
 
 const parseBold = explicit(
   regexp(
-    /^\*(\S([^*\n]*?|[^*\n]*? `.*?` )\S|\S)\*(?=\s|$)/,
+    /^\*(\S([^*\n]*?|[^*\n]*? `.*?` )\S|\S)\*(?=[\s.,]|$)/,
     (match, text, position, parseText) => {
       const [matchedText, content] = match
 
@@ -49,7 +49,7 @@ const parsePreText = explicit(
 
 const parseItalic = explicit(
   regexp(
-    /^_(\S([^_\n]*?|[^_\n]*? `.*?` )\S|\S)\_(?=\s|$)/,
+    /^_(\S([^_\n]*?|[^_\n]*? `.*?` )\S|\S)\_(?=[\s.,]|$)/,
     (match, text, position, parseText) => {
       const [matchedText, content] = match
 
@@ -66,7 +66,7 @@ const parseItalic = explicit(
 
 const parseStrike = explicit(
   regexp(
-    /^~(\S([^~\n]*?|[^~\n]*? `.*?` )\S|\S)\~(?=\s|$)/,
+    /^~(\S([^~\n]*?|[^~\n]*? `.*?` )\S|\S)\~(?=[\s.,]|$)/,
     (match, text, position, parseText) => {
       const [matchedText, content] = match
 
