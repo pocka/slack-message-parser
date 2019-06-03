@@ -1,6 +1,6 @@
 import { parse } from '../src'
 
-import { bold, code, italic, root, strike, text } from './helpers'
+import { bold, code, emoji, italic, root, strike, text } from './helpers'
 
 describe('#4', () => {
   it('Should parse correctly', () => {
@@ -28,5 +28,11 @@ describe('#4', () => {
     ])
 
     expect(parse(test)).toEqual(expected)
+  })
+})
+
+describe('#6', () => {
+  it('Treat only "skin-tone-*" as variations', () => {
+    expect(parse(':a::b:')).toEqual(root([emoji('a'), emoji('b')]))
   })
 })
