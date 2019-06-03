@@ -151,8 +151,24 @@ describe('Emoji parser', () => {
     )
   })
 
-  it('Should parse emoji with variation', () => {
-    expect(parse(':foo::bar:')).toEqual(root([emoji('foo', 'bar')]))
+  it('Should parse emoji with skin-tone variation', () => {
+    expect(parse(':foo::skin-tone-1:')).toEqual(
+      root([emoji('foo', 'skin-tone-1')])
+    )
+  })
+
+  it('Should parse sequential emojis', () => {
+    expect(parse('ab:cd::ef::skin-tone-1:g:h::i:jk')).toEqual(
+      root([
+        text('ab'),
+        emoji('cd'),
+        emoji('ef', 'skin-tone-1'),
+        text('g'),
+        emoji('h'),
+        emoji('i'),
+        text('jk')
+      ])
+    )
   })
 
   it('Should parse "foo:bar:baz" as emoji', () => {
