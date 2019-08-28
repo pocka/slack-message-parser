@@ -4,7 +4,7 @@ import { explicit, or, regexp, topOfLine } from './combinator'
 
 const parseBold = explicit(
   regexp(
-    /^\*(\S([^*\n]*?|[^*\n]*? `.*?` )\S|\S)\*(?=[\s.,]|$)/,
+    /^\*(\S([^*\n]*?|[^*\n]*? `.*?` )\S|\S)\*(?=[\s.,\])}!?\-=]|$)/,
     (match, text, position, parseText) => {
       const [matchedText, content] = match
 
@@ -20,7 +20,7 @@ const parseBold = explicit(
 )
 
 const parseCode = explicit(
-  regexp(/^`([^`]+?)`(?=\s|$)/, (match, text, position) => {
+  regexp(/^`([^`]+?)`(?=[\s.,\])}!?\-=]|$)/, (match, text, position) => {
     const [matchedText, content] = match
 
     return [
@@ -34,22 +34,25 @@ const parseCode = explicit(
 )
 
 const parsePreText = explicit(
-  regexp(/^```(\s*\S[\s\S]*?\s*)```(?=\s|$)/, (match, text, position) => {
-    const [matchedText, content] = match
+  regexp(
+    /^```(\s*\S[\s\S]*?\s*)```(?=[\s.,\])}!?\-=]|$)/,
+    (match, text, position) => {
+      const [matchedText, content] = match
 
-    return [
-      {
-        type: NodeType.PreText,
-        text: content
-      },
-      position + matchedText.length
-    ]
-  })
+      return [
+        {
+          type: NodeType.PreText,
+          text: content
+        },
+        position + matchedText.length
+      ]
+    }
+  )
 )
 
 const parseItalic = explicit(
   regexp(
-    /^_(\S([^_\n]*?|[^_\n]*? `.*?` )\S|\S)\_(?=[\s.,]|$)/,
+    /^_(\S([^_\n]*?|[^_\n]*? `.*?` )\S|\S)\_(?=[\s.,\])}!?\-=]|$)/,
     (match, text, position, parseText) => {
       const [matchedText, content] = match
 
@@ -66,7 +69,7 @@ const parseItalic = explicit(
 
 const parseStrike = explicit(
   regexp(
-    /^~(\S([^~\n]*?|[^~\n]*? `.*?` )\S|\S)\~(?=[\s.,]|$)/,
+    /^~(\S([^~\n]*?|[^~\n]*? `.*?` )\S|\S)\~(?=[\s.,\])}!?\-=]|$)/,
     (match, text, position, parseText) => {
       const [matchedText, content] = match
 

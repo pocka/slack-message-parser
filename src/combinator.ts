@@ -42,7 +42,7 @@ export const explicit = (parser: Parser): Parser => (
 ) => {
   const prevChar = text.charAt(position - 1)
 
-  if (prevChar && !prevChar.match(/\s/)) {
+  if (prevChar && !prevChar.match(/[\s.,([{!?\-=]/)) {
     return null
   }
 

@@ -206,6 +206,47 @@ describe('Quote parser', () => {
   })
 })
 
+describe('Punctuations', () => {
+  it('Should delimit with "?"', () => {
+    expect(parse('*foo*?')).toEqual(root([bold([text('foo')]), text('?')]))
+  })
+
+  it('Should delimit with "!"', () => {
+    expect(parse('*foo*!')).toEqual(root([bold([text('foo')]), text('!')]))
+  })
+
+  it('Should delimit with "."', () => {
+    expect(parse('*foo*.')).toEqual(root([bold([text('foo')]), text('.')]))
+  })
+
+  it('Should delimit with "()"', () => {
+    expect(parse('(*foo*)')).toEqual(
+      root([text('('), bold([text('foo')]), text(')')])
+    )
+    expect(parse(')*foo*(')).toEqual(root([text(')*foo*(')]))
+  })
+
+  it('Should delimit with "[]"', () => {
+    expect(parse('[*foo*]')).toEqual(
+      root([text('['), bold([text('foo')]), text(']')])
+    )
+    expect(parse(']*foo*[')).toEqual(root([text(']*foo*[')]))
+  })
+
+  it('Should delimit with "{}"', () => {
+    expect(parse('{*foo*}')).toEqual(
+      root([text('{'), bold([text('foo')]), text('}')])
+    )
+    expect(parse('}*foo*{')).toEqual(root([text('}*foo*{')]))
+  })
+
+  it('Should delimit with "-" or "="', () => {
+    expect(parse('-*foo*=')).toEqual(
+      root([text('-'), bold([text('foo')]), text('=')])
+    )
+  })
+})
+
 describe('Root parser', () => {
   it('Should parse slack message', () => {
     const expected = root([
