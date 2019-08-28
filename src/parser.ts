@@ -136,7 +136,7 @@ const parseEmoji = regexp(
 )
 
 const parseLink = regexp(
-  /^<([^\s<>]+?)(\|([^<>]+?))?>/,
+  /^<([^\s<>][^\n<>]*?)(\|([^<>]+?))?>/,
   (match, text, position, parseText) => {
     const [matchedText, link, _, label] = match
     const nextPosition = position + matchedText.length
