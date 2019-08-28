@@ -1,6 +1,6 @@
 import { parse } from '../src'
 
-import { bold, code, emoji, italic, root, strike, text } from './helpers'
+import { bold, code, emoji, italic, url, root, strike, text } from './helpers'
 
 describe('#4', () => {
   it('Should parse correctly', () => {
@@ -34,5 +34,20 @@ describe('#4', () => {
 describe('#6', () => {
   it('Treat only "skin-tone-*" as variations', () => {
     expect(parse(':a::b:')).toEqual(root([emoji('a'), emoji('b')]))
+  })
+})
+
+// https://github.com/pocka/slack-message-parser/issues/13
+describe('#13', () => {
+  // According to RFC 2368, spaces in mailto URL should be encoded
+  // but Slack accpets unencoded spaces.
+  it('Parse mailto link contains spaces', () => {
+    expect(
+      parse('<mailto:foo@bar.baz?subject=Hello, World&body=https://foo.bar>')
+    ).toEqual(
+      root([
+        url('mailto:foo@bar.baz?subject=Hello, World&body=https://foo.bar')
+      ])
+    )
   })
 })
