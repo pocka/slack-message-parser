@@ -8,6 +8,8 @@
 
 Parser library for [Slack message format](https://api.slack.com/docs/message-formatting).
 
+[[Document](https://pocka.github.io/slack-message-parser/)]
+
 ## Install
 
 ```sh
