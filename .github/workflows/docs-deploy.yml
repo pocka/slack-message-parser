@@ -1,0 +1,28 @@
+# Build and deploy documentation to GitHub pages on master push.
+
+name: Deploy Docs
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build-and-deploy:
+    name: Build and Deploy
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Install build dependencies
+        uses: borales/actions-yarn@v2.0.0
+        with:
+          cmd: install
+      - name: Build docs
+        uses: borales/actions-yarn@v2.0.0
+        with:
+          cmd: docs:build
+      - name: Deploy to GitHub Pages
+        uses: maxheld83/ghpages@v0.2.1
+        env:
+          BUILD_DIR: docs/.vuepress/dist
+          GH_PAT: ${{ secrets.GITHUB_PAT }}
