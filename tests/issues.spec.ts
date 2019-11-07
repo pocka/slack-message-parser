@@ -51,3 +51,11 @@ describe('#13', () => {
     )
   })
 })
+
+describe('#22', () => {
+  it('doesnt match colons and new lines as emojis', () => {
+    expect(parse('Test:\nTest 2:\nTest 3:')).toEqual(
+      root([text('Test:\nTest 2:\nTest 3:')])
+    )
+  })
+})
