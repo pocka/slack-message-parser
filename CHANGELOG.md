@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.0.6] - 2019-11-08
+
+### Fixed
+
+- Fix the parser treats other special characters as emoji name (Issue: [#22](https://github.com/pocka/slack-message-parser/issues/22), PR: [#23](https://github.com/pocka/slack-message-parser/pull/23)).
+
 ## [1.0.5] - 2019-08-29
 
 ### Fixed
