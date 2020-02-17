@@ -2,5 +2,7 @@ node_modules
 lib
 coverage
 *.log
+yarn.lock
+package-lock.json
 
 docs/.vuepress/dist
