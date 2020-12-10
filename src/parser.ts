@@ -123,7 +123,7 @@ const parseMultilineQuote = topOfLine(
 )
 
 const parseEmoji = regexp(
-  /^:([^:<`*#@!\s]+):(:(skin-tone-.+?):)?/,
+  /^:([^:<`*#@!\s()$%]+):(:(skin-tone-.+?):)?/,
   (match, text, position) => {
     const [matchedText, name, _, variation] = match
 

@@ -176,6 +176,12 @@ describe('Emoji parser', () => {
       root([text('foo'), emoji('bar'), text('baz')])
     )
   })
+
+  it('Should not parse invalid emoji names', () => {
+    expect(parse('(11/3 - 4:30pm): ok')).toEqual(
+      root([text('(11/3 - 4:30pm): ok')])
+    )
+  })
 })
 
 describe('Quote parser', () => {
