@@ -1,50 +1,63 @@
 import { Node, NodeType } from '../src/types/Node'
 
+function source(children: Node[]): string {
+  return children.map(c => c.source).join('')
+}
+
 export const root = (children: Node[]): Node => ({
   type: NodeType.Root,
-  children
+  children,
+  source: source(children)
 })
 
 export const text = (t: string): Node => ({
   type: NodeType.Text,
-  text: t
+  text: t,
+  source: t
 })
 
 export const strike = (children: Node[]): Node => ({
   type: NodeType.Strike,
-  children
+  children,
+  source: `~${source(children)}~`
 })
 
 export const italic = (children: Node[]): Node => ({
   type: NodeType.Italic,
-  children
+  children,
+  source: `_${source(children)}_`
 })
 
 export const bold = (children: Node[]): Node => ({
   type: NodeType.Bold,
-  children
+  children,
+  source: `*${source(children)}*`
 })
 
 export const code = (text: string): Node => ({
   type: NodeType.Code,
-  text
+  text,
+  source: '`' + text + '`'
 })
 
 export const pre = (text: string): Node => ({
   type: NodeType.PreText,
-  text
+  text,
+  source: '```' + text + '```'
 })
 
 export const user = (userID: string, label?: Node[]): Node => ({
   type: NodeType.UserLink,
   userID,
-  label
+  label,
+  source: `<@${userID}${label ? '|' + source(label) : ''}>`
 })
 
 export const channel = (channelID: string, label?: Node[]): Node => ({
   type: NodeType.ChannelLink,
   channelID,
-  label
+  label,
+  source: `<#${channelID}${label ? '|' + source(label) : ''}>`
 })
 
 export const command = (
@@ -55,22 +68,28 @@ export const command = (
   type: NodeType.Command,
   name,
   arguments: args,
-  label
+  label,
+  source: `<!${name}${args.map(c => `^${c}`).join('')}${
+    label ? '|' + source(label) : ''
+  }>`
 })
 
 export const url = (link: string, label?: Node[]): Node => ({
   type: NodeType.URL,
   url: link,
-  label
+  label,
+  source: `<${link}${label ? '|' + source(label) : ''}>`
 })
 
 export const emoji = (name: string, variation?: string): Node => ({
   type: NodeType.Emoji,
   name,
-  variation
+  variation,
+  source: `:${name}${variation ? '::' + variation : ''}:`
 })
 
-export const quote = (children: Node[]): Node => ({
+export const quote = (children: Node[], inline?: boolean): Node => ({
   type: NodeType.Quote,
-  children
+  children,
+  source: `${'&gt;'.repeat(inline ? 1 : 3)}${source(children)}`
 })

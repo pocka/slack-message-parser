@@ -32,7 +32,8 @@ const tree = slackMessageParser('Slack *message* ~to~ _parse_')
 //   children: [
 //     {
 //       type: NodeType.Text,
-//       text: "Slack "
+//       text: "Slack ",
+// .     source: "Slack "
 //     },
 //     {
 //       type: NodeType.Bold,
@@ -41,10 +42,12 @@ const tree = slackMessageParser('Slack *message* ~to~ _parse_')
 //           type: NodeType.Text,
 //           text: "message"
 //         }
-//       ]
+//       ],
+// .     source: "*message*"
 //     },
 //     ...
-//   ]
+//   ],
+//   source: "Slack *message* ~to~ _parse_"
 // }
 
 // Write your own!
@@ -61,7 +64,8 @@ const toHTML = (node: Node): string => {
     case NodeType.Strike:
       return `<del>${node.children.map(toHTML).join('')}</del>`
     default:
-      return ''
+      // You can use `source` property, which every nodes have, to serialize unknown nodes as-is
+      return node.source
   }
 }
 

@@ -31,6 +31,11 @@ export type Node =
 
 interface NodeBase {
   type: NodeType
+
+  /**
+   * Raw node text.
+   */
+  source: string
 }
 
 export interface Text extends NodeBase {

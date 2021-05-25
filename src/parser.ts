@@ -11,7 +11,8 @@ const parseBold = explicit(
       return [
         {
           type: NodeType.Bold,
-          children: parseText(content)
+          children: parseText(content),
+          source: matchedText
         },
         position + matchedText.length
       ]
@@ -26,7 +27,8 @@ const parseCode = explicit(
     return [
       {
         type: NodeType.Code,
-        text: content
+        text: content,
+        source: matchedText
       },
       position + matchedText.length
     ]
@@ -42,7 +44,8 @@ const parsePreText = explicit(
       return [
         {
           type: NodeType.PreText,
-          text: content
+          text: content,
+          source: matchedText
         },
         position + matchedText.length
       ]
@@ -59,7 +62,8 @@ const parseItalic = explicit(
       return [
         {
           type: NodeType.Italic,
-          children: parseText(content)
+          children: parseText(content),
+          source: matchedText
         },
         position + matchedText.length
       ]
@@ -76,7 +80,8 @@ const parseStrike = explicit(
       return [
         {
           type: NodeType.Strike,
-          children: parseText(content)
+          children: parseText(content),
+          source: matchedText
         },
         position + matchedText.length
       ]
@@ -97,11 +102,13 @@ const parseSingleLineQuote = topOfLine(
           ? [
               {
                 type: NodeType.Text,
-                text: repeatedGt[1]
+                text: repeatedGt[1],
+                source: repeatedGt[1]
               },
               ...parseText(repeatedGt[3])
             ]
-          : parseText(content)
+          : parseText(content),
+        source: matchedText
       },
       position + matchedText.length
     ]
@@ -115,7 +122,8 @@ const parseMultilineQuote = topOfLine(
     return [
       {
         type: NodeType.Quote,
-        children: parseText(content)
+        children: parseText(content),
+        source: matchedText
       },
       position + matchedText.length
     ]
@@ -131,7 +139,8 @@ const parseEmoji = regexp(
       {
         type: NodeType.Emoji,
         name,
-        variation
+        variation,
+        source: matchedText
       },
       position + matchedText.length
     ]
@@ -151,7 +160,8 @@ const parseLink = regexp(
           {
             type: NodeType.UserLink,
             userID: link.slice(1),
-            label: labelNodes
+            label: labelNodes,
+            source: matchedText
           },
           nextPosition
         ]
@@ -160,7 +170,8 @@ const parseLink = regexp(
           {
             type: NodeType.ChannelLink,
             channelID: link.slice(1),
-            label: labelNodes
+            label: labelNodes,
+            source: matchedText
           },
           nextPosition
         ]
@@ -172,7 +183,8 @@ const parseLink = regexp(
             type: NodeType.Command,
             name: commandName,
             arguments: args,
-            label: labelNodes
+            label: labelNodes,
+            source: matchedText
           },
           nextPosition
         ]
@@ -181,7 +193,8 @@ const parseLink = regexp(
           {
             type: NodeType.URL,
             url: link,
-            label: labelNodes
+            label: labelNodes,
+            source: matchedText
           },
           nextPosition
         ]

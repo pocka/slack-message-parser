@@ -187,13 +187,13 @@ describe('Emoji parser', () => {
 describe('Quote parser', () => {
   it('Should parse quote text', () => {
     expect(parse('&gt; foo *bar*')).toEqual(
-      root([quote([text(' foo '), bold([text('bar')])])])
+      root([quote([text(' foo '), bold([text('bar')])], true)])
     )
   })
 
   it('Should parse quote locate in second line', () => {
     expect(parse('foo\n&gt;bar')).toEqual(
-      root([text('foo\n'), quote([text('bar')])])
+      root([text('foo\n'), quote([text('bar')], true)])
     )
   })
 
@@ -208,7 +208,9 @@ describe('Quote parser', () => {
   })
 
   it('Should parse "&gt;&gt;&gt;" as quoted "&gt;&gt;"', () => {
-    expect(parse('&gt;&gt;&gt;')).toEqual(root([quote([text('&gt;&gt;')])]))
+    expect(parse('&gt;&gt;&gt;')).toEqual(
+      root([quote([text('&gt;&gt;')], true)])
+    )
   })
 })
 

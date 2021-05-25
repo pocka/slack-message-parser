@@ -14,7 +14,8 @@ const parseText: ParseText = text => {
 
     children.push({
       type: NodeType.Text,
-      text: textBuffer
+      text: textBuffer,
+      source: textBuffer
     })
 
     textBuffer = ''
@@ -47,7 +48,8 @@ const parseText: ParseText = text => {
 export const parse = (message: string): Node => {
   return {
     type: NodeType.Root,
-    children: parseText(message)
+    children: parseText(message),
+    source: message
   }
 }
 

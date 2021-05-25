@@ -24,9 +24,10 @@ Represents each parts of the message, its type and properties.
 
 Every node at least have one property, `type`.
 
-| Name | Type             | Description      |
-| ---- | ---------------- | ---------------- |
-| type | Number(NodeType) | Type of the node |
+| Name   | Type             | Description            |
+| ------ | ---------------- | ---------------------- |
+| type   | Number(NodeType) | Type of the node       |
+| source | String           | Raw string of the node |
 
 You can test the type with `NodeType` object (which is actually TypeScript enum).
 
