@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.1.0] - 2021-05-25
+
+### Added
+
+- Add `source` property to all node types (Issue: [#29](https://github.com/pocka/slack-message-parser/issues/29)).
+
 ## [1.0.7] - 2020-12-10
 
 ### Fixed
