@@ -1,4 +1,4 @@
-import { Node, NodeType } from './types/Node'
+import { Node, Root, NodeType } from './types/Node'
 import { ParseText } from './types/Parser'
 
 import parser from './parser'
@@ -45,7 +45,7 @@ const parseText: ParseText = text => {
   return children
 }
 
-export const parse = (message: string): Node => {
+export const parse = (message: string): Root => {
   return {
     type: NodeType.Root,
     children: parseText(message),
