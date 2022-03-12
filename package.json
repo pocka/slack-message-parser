@@ -1,6 +1,6 @@
 {
   "name": "slack-message-parser",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Parser for Slack message",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",

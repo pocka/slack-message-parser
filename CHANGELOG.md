@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.0.1] - 2022-03-13
+
+### Fixed
+
+- Removed unnecessary files from published tarball ([557cf72](https://github.com/pocka/slack-message-parser/commit/557cf72c14511d2450ee283a58376974e51c4f49)).
+
 ## [2.0.0] - 2022-03-13
 
 ### Changed
