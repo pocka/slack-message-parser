@@ -12,6 +12,10 @@
     "docs": "vuepress dev docs",
     "docs:build": "vuepress build docs"
   },
+  "files": [
+    "lib",
+    "docs/**/*.md"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/pocka/slack-message-parser.git"

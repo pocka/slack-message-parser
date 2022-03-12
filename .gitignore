@@ -6,3 +6,5 @@ yarn.lock
 package-lock.json
 
 docs/.vuepress/dist
+
+slack-message-parser-*.tgz
