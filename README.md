@@ -1,10 +1,10 @@
 # slack-message-parser
 
 [![npm](https://img.shields.io/github/package-json/v/pocka/slack-message-parser)](https://www.npmjs.com/package/slack-message-parser)
-[![travis](https://img.shields.io/travis/com/pocka/slack-message-parser)](https://travis-ci.com/pocka/slack-message-parser#)
+[![Lint Workflow Status](https://img.shields.io/github/workflow/status/pocka/slack-message-parser/Lint%20files?label=lint)](https://github.com/pocka/slack-message-parser/actions/workflows/lint.yml)
+[![Test Workflow Status](https://img.shields.io/github/workflow/status/pocka/slack-message-parser/Test%20and%20collect%20coverage?label=test)](https://github.com/pocka/slack-message-parser/actions/workflows/test.yml)
+[![GitHub Workflow Status](https://img.shields.io/github/workflow/status/pocka/slack-message-parser/Deploy%20Docs?label=docs%20deploy)](https://github.com/pocka/slack-message-parser/actions/workflows/docs-deploy.yml)
 [![codecov](https://img.shields.io/codecov/c/github/pocka/slack-message-parser)](https://codecov.io/gh/pocka/slack-message-parser)
-
-[![Status for docs deploying](https://github.com/pocka/slack-message-parser/workflows/Deploy%20Docs/badge.svg)](https://github.com/pocka/slack-message-parser/actions)
 
 Parser library for [Slack message format](https://api.slack.com/docs/message-formatting).
 
