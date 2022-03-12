@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2.0.0] - 2022-03-13
+
+### Changed
+
+- Change TypeScript typing for the return type of `parse` function from `Node` to `Root`. Since `Node` has been including `Root`, this is breaking only when you obtain `Node` interface type by inferencing the return type of `parse` function. (PR: [#27](https://github.com/pocka/slack-message-parser/pull/27)).
+
 ## [1.1.0] - 2021-05-25
 
 ### Added
