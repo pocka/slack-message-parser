@@ -1,4 +1,4 @@
-import { Node, Root, NodeType } from './types/Node'
+import { Node, NodeType, Root } from './types/Node'
 import { ParseText } from './types/Parser'
 
 import parser from './parser'
