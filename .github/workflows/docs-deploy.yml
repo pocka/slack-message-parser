@@ -12,17 +12,18 @@ jobs:
     name: Build and Deploy
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
-      - name: Install build dependencies
-        uses: borales/actions-yarn@v2.0.0
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
         with:
-          cmd: install
+          node-version: '16'
+      - name: Install dependencies
+        run: yarn install
       - name: Build docs
-        uses: borales/actions-yarn@v2.0.0
-        with:
-          cmd: docs:build
+        run: yarn docs:build
       - name: Deploy to GitHub Pages
-        uses: maxheld83/ghpages@v0.2.1
-        env:
-          BUILD_DIR: docs/.vuepress/dist
-          GH_PAT: ${{ secrets.GITHUB_PAT }}
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          publish_dir: docs/.vuepress/dist
+          github_token: ${{ secrets.GITHUB_TOKEN }}
