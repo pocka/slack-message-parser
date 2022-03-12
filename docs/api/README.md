@@ -14,9 +14,9 @@ Parses Slack message and returns a tree ([`Node`](#interface-node)).
 
 ### Returns
 
-| Type | Description  |
-| ---- | ------------ |
-| Node | Message tree |
+| Type | Description                            |
+| ---- | -------------------------------------- |
+| Root | A root node of the parsed message tree |
 
 ## `interface Node`
 
