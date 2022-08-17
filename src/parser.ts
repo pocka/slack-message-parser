@@ -4,7 +4,7 @@ import { explicit, or, regexp, topOfLine } from './combinator'
 
 const parseBold = explicit(
   regexp(
-    /^\*(\S([^*\n]*?|[^*\n]*? `.*?` )\S|\S)\*(?=[\s.,\])}!?\-=]|$)/,
+    /^\*(\S([^*\n]*?|[^*\n]*? `.*?` )[^\s*]|\S)\*(?=[\s~!#$%^)\-+={}[\];:'",.?/]|$)/,
     (match, text, position, parseText) => {
       const [matchedText, content] = match
 
