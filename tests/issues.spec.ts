@@ -59,3 +59,62 @@ describe('#22', () => {
     )
   })
 })
+
+// https://github.com/pocka/slack-message-parser/issues/34
+describe('#34', () => {
+  it('parses bold formatting properly with various punctuation suffixes', () => {
+    expect(
+      parse(
+        '*Y*~ *N*` *Y*! *N*@ *Y*# *Y*$ *Y*% *Y*^ *N*& *N** *N*( *Y*) *N*_ *Y*- *Y*+ *Y*= *Y*{ *Y*} *Y*[ *Y*] *N*| *N*\\ *Y*; *Y*: *Y*\' *Y*" *N*< *Y*, *N*> *Y*. *Y*? *Y*/ *Y*'
+      )
+    ).toEqual(
+      root([
+        bold([text('Y')]),
+        text('~ *N*` '),
+        bold([text('Y')]),
+        text('! *N*@ '),
+        bold([text('Y')]),
+        text('# '),
+        bold([text('Y')]),
+        text('$ '),
+        bold([text('Y')]),
+        text('% '),
+        bold([text('Y')]),
+        text('^ *N*& *N** *N*( '),
+        bold([text('Y')]),
+        text(') *N*_ '),
+        bold([text('Y')]),
+        text('- '),
+        bold([text('Y')]),
+        text('+ '),
+        bold([text('Y')]),
+        text('= '),
+        bold([text('Y')]),
+        text('{ '),
+        bold([text('Y')]),
+        text('} '),
+        bold([text('Y')]),
+        text('[ '),
+        bold([text('Y')]),
+        text('] *N*| *N*\\ '),
+        bold([text('Y')]),
+        text('; '),
+        bold([text('Y')]),
+        text(': '),
+        bold([text('Y')]),
+        text("' "),
+        bold([text('Y')]),
+        text('" *N*< '),
+        bold([text('Y')]),
+        text(', *N*> '),
+        bold([text('Y')]),
+        text('. '),
+        bold([text('Y')]),
+        text('? '),
+        bold([text('Y')]),
+        text('/ '),
+        bold([text('Y')])
+      ])
+    )
+  })
+})
