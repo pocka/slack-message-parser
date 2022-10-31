@@ -22,9 +22,9 @@ npm i --save slack-message-parser
 Usage with Typescript (recommended).
 
 ```ts
-import slackMessageParser, { Node, NodeType } from 'slack-message-parser'
+import slackMessageParser, { Node, NodeType } from "slack-message-parser";
 
-const tree = slackMessageParser('Slack *message* ~to~ _parse_')
+const tree = slackMessageParser("Slack *message* ~to~ _parse_");
 
 // tree is:
 // {
@@ -54,22 +54,22 @@ const tree = slackMessageParser('Slack *message* ~to~ _parse_')
 const toHTML = (node: Node): string => {
   switch (node.type) {
     case NodeType.Root:
-      return `<p>${node.children.map(toHTML).join('')}</p>`
+      return `<p>${node.children.map(toHTML).join("")}</p>`;
     case NodeType.Text:
-      return node.text
+      return node.text;
     case NodeType.Bold:
-      return `<strong>${node.children.map(toHTML).join('')}</strong>`
+      return `<strong>${node.children.map(toHTML).join("")}</strong>`;
     case NodeType.Italic:
-      return `<i>${node.children.map(toHTML).join('')}</i>`
+      return `<i>${node.children.map(toHTML).join("")}</i>`;
     case NodeType.Strike:
-      return `<del>${node.children.map(toHTML).join('')}</del>`
+      return `<del>${node.children.map(toHTML).join("")}</del>`;
     default:
       // You can use `source` property, which every nodes have, to serialize unknown nodes as-is
-      return node.source
+      return node.source;
   }
-}
+};
 
-console.log(toHTML(tree))
+console.log(toHTML(tree));
 
 // Output:
 // '<p>Slack <strong>message</strong> <del>to</del> <i>parse</i></p>'

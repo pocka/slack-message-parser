@@ -12,13 +12,18 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
-      - name: Setup Node.js
-        uses: actions/setup-node@v2
+      - name: Setup Deno
+        uses: denoland/setup-deno@v1
         with:
-          node-version: '16'
-      - name: Install dependencies
-        run: yarn install
+          deno-version: v1.26.x
+      - name: Run doc comment tests
+        run: deno test --doc *.ts
       - name: Run tests
-        run: yarn test
+        run: deno test --coverage=coverage/
+      - name: Generate coverage report
+        run: deno coverage coverage/ --lcov --output=cov.lcov
       - name: Upload coverage report
-        uses: codecov/codecov-action@v2
+        uses: codecov/codecov-action@v3
+        with:
+          files: ./cov.lcov
+          verbose: true

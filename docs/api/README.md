@@ -32,13 +32,13 @@ Every node at least have one property, `type`.
 You can test the type with `NodeType` object (which is actually TypeScript enum).
 
 ```js
-import { NodeType } from 'slack-message-parser'
+import { NodeType } from "slack-message-parser";
 
 switch (node.type) {
   case NodeType.Text:
   // ...
   case NodeType.ChannelLink:
-  // ...
+    // ...
 }
 ```
 

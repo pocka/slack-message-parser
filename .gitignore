@@ -1,10 +1,5 @@
-node_modules
-lib
-coverage
+/npm
+/coverage
+*.lcov
 *.log
-yarn.lock
-package-lock.json
 
-docs/.vuepress/dist
-
-slack-message-parser-*.tgz

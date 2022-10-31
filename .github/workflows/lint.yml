@@ -9,11 +9,11 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
-      - name: Setup Node.js
-        uses: actions/setup-node@v2
+      - name: Setup Deno
+        uses: denoland/setup-deno@v1
         with:
-          node-version: '16'
-      - name: Install dependencies
-        run: yarn install
+          deno-version: v1.26.x
+      - name: Check source code format
+        run: deno fmt --check
       - name: Lint files
-        run: yarn lint
+        run: deno lint

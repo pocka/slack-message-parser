@@ -17,11 +17,11 @@ yarn add slack-message-parser
 Just parse the message!
 
 ```ts
-import slackMessageParser from 'slack-message-parser'
+import slackMessageParser from "slack-message-parser";
 
-const tree = slackMessageParser('Slack *message* ~to~ _parse_')
+const tree = slackMessageParser("Slack *message* ~to~ _parse_");
 
-console.dir(tree)
+console.dir(tree);
 ```
 
 ## Supported Message Features

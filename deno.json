@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "strict": true
+  },
+  "test": {
+    "files": {
+      "exclude": ["npm"]
+    }
+  },
+  "lint": {
+    "files": {
+      "exclude": ["npm"]
+    }
+  },
+  "fmt": {
+    "files": {
+      "exclude": ["npm"]
+    },
+    "options": {
+      "proseWrap": "preserve"
+    }
+  }
+}

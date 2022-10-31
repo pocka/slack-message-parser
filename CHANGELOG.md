@@ -62,6 +62,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Treat comma and dot as separator (Issue: [#4](https://github.com/pocka/slack-message-parser/issues/4), PR: [#5](https://github.com/pocka/slack-message-parser/pull/5)).
 
-
 [Unreleased]: https://github.com/pocka/slack-message-parser/compare/v2.0.2...HEAD
 [2.0.2]: https://github.com/pocka/slack-message-parser/compare/v2.0.1...v2.0.2
