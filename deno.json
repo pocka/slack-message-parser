@@ -4,17 +4,17 @@
   },
   "test": {
     "files": {
-      "exclude": ["npm"]
+      "exclude": ["npm", "coverage"]
     }
   },
   "lint": {
     "files": {
-      "exclude": ["npm"]
+      "exclude": ["npm", "coverage"]
     }
   },
   "fmt": {
     "files": {
-      "exclude": ["npm"]
+      "exclude": ["npm", "coverage"]
     },
     "options": {
       "proseWrap": "preserve"
