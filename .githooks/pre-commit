@@ -1,0 +1,16 @@
+#!/bin/sh
+
+gray="$(tput setaf 6)"
+nocolor="$(tput sgr0)"
+
+echo "${gray}> deno fmt --check${nocolor}"
+deno fmt --check
+
+echo "${gray}> deno lint${nocolor}"
+deno lint
+
+echo "${gray}> deno test${nocolor}"
+deno test
+
+echo "${gray}> deno check scripts/*.ts${nocolor}"
+deno check scripts/*.ts
