@@ -22,7 +22,7 @@ This command configures these git hooks:
 
 - (pre-commit) Run `deno fmt --check` to check files are properly formatted.
 - (pre-commit) Run `deno lint`.
-- (pre-commit) Run `deno test` to run unit tests and type check.
+- (pre-commit) Run `deno test --doc` to run unit tests and type check.
 - (pre-commit) Run `deno check scripts/build_npm.ts` to run type check for build script.
 
 See the contents of each files to see what will be executed.

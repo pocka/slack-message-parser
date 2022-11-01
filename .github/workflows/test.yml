@@ -16,10 +16,8 @@ jobs:
         uses: denoland/setup-deno@v1
         with:
           deno-version: v1.26.x
-      - name: Run doc comment tests
-        run: deno test --doc *.ts
       - name: Run tests
-        run: deno test --coverage=coverage/
+        run: deno test --doc --coverage=coverage/
       - name: Generate coverage report
         run: deno coverage coverage/ --lcov --output=cov.lcov --exclude=tests --exclude=_test
       - name: Upload coverage report

@@ -9,8 +9,8 @@ deno fmt --check
 echo "${gray}> deno lint${nocolor}"
 deno lint
 
-echo "${gray}> deno test${nocolor}"
-deno test
+echo "${gray}> deno test --doc${nocolor}"
+deno test --doc
 
 echo "${gray}> deno check scripts/*.ts${nocolor}"
 deno check scripts/*.ts
