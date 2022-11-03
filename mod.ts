@@ -45,6 +45,12 @@ const parseText: ParseText = (text) => {
   return children;
 };
 
+/**
+ * Parses a Slack message and returns a parsed Node tree.
+ *
+ * @param message - a Slack message to parse
+ * @returns Root node of the parsed message tree
+ */
 export const parse = (message: string): Root => {
   return {
     type: NodeType.Root,

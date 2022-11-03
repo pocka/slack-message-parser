@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "slack-message-parser": "./mod.ts"
+  }
+}
