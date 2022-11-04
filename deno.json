@@ -4,21 +4,25 @@
   },
   "test": {
     "files": {
-      "exclude": ["npm", "coverage"]
+      "exclude": ["npm", "coverage", "docs/build"]
     }
   },
   "lint": {
     "files": {
-      "exclude": ["npm", "coverage"]
+      "exclude": ["npm", "coverage", "docs/build"]
     }
   },
   "fmt": {
     "files": {
-      "exclude": ["npm", "coverage"]
+      "exclude": ["npm", "coverage", "docs/build"]
     },
     "options": {
       "proseWrap": "preserve"
     }
   },
-  "importMap": "import_map.json"
+  "importMap": "import_map.json",
+  "tasks": {
+    "docs_build": "deno run --allow-read=. --allow-write=./docs/site/build --allow-net=unpkg.com,deno.land ./docs/site/build.tsx",
+    "docs_serve": "deno run --allow-net --allow-read=. https://deno.land/std@0.161.0/http/file_server.ts ./docs/site/build"
+  }
 }

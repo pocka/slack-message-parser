@@ -1,7 +1,5 @@
 # API
 
-[[toc]]
-
 ## `function parse(message)`
 
 Parses Slack message and returns a tree ([`Node`](#interface-node)).

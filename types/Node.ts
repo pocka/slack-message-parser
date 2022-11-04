@@ -61,7 +61,7 @@ export type Node =
   | Quote
   | Root;
 
-interface NodeBase {
+export interface NodeBase {
   type: NodeType;
 
   /**

@@ -14,4 +14,14 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
-      # TODO: Re-implement documentation website
+      - name: Setup Deno
+        uses: denoland/setup-deno@v1
+        with:
+          deno-version: v1.26.x
+      - name: Build doc site
+        run: deno task docs_build https://pocka.github.io/slack-message-parser/
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./docs/site/build
