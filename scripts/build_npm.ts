@@ -30,9 +30,16 @@ await build({
 });
 
 // Copy files
-Deno.copyFileSync("LICENSE", "npm/LICENSE");
-Deno.copyFileSync("README.md", "npm/README.md");
-Deno.mkdirSync("npm/docs");
-Deno.mkdirSync("npm/docs/api");
-Deno.copyFileSync("docs/README.md", "npm/docs/README.md");
-Deno.copyFileSync("docs/api/README.md", "npm/docs/api/README.md");
+await Deno.mkdir("npm/docs");
+
+await Promise.all(
+  [
+    "LICENSE",
+    "README.md",
+    "docs/api.md",
+    "docs/installation.md",
+    "docs/introduction.md",
+  ].map(async (file) => {
+    await Deno.copyFile(file, `npm/${file}`);
+  }),
+);
