@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- ESM builds.
+- Export `NodeBase` interface.
+
 ## [2.0.2] - 2022-10-31
 
 ### Fixed
