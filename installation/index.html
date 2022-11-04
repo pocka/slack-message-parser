@@ -1,0 +1,44 @@
+
+    <!DOCTYPE html>
+    <html lang="en-US">
+      <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self';frame-src https://codesandbox.io;style-src https://pocka.github.io/slack-message-parser/styles.css https://rsms.me/inter/ https://cdn.jsdelivr.net/npm/hack-font@3.3.0/;font-src https://rsms.me/inter/ https://cdn.jsdelivr.net/npm/hack-font@3.3.0/" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link href="https://rsms.me/inter/inter.css" rel="stylesheet" /><link href="https://cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack-subset.css" rel="stylesheet" />
+<title>Installation | slack-message-parser</title>
+        <link rel="stylesheet" href="/slack-message-parser/styles.css" />
+      </head>
+      <!--
+        This site is generated using nano-jsx SSR, lightning-css, remark/rehype, Prism, and Deno.
+        Source code at https://github.com/pocka/slack-message-parser/tree/master/docs/site/
+      -->
+      <body>
+        <div class="layout__logo-wrapper  layout__header"><a class="layout__logo" href="/slack-message-parser/">slack<br />message<br />parser</a></div><nav class="layout__nav  layout__header"><ul class="nav__list"><li><a class="nav__link" href="/slack-message-parser/">Intro</a></li><li><a class="nav__link" href="/slack-message-parser/installation/">Install</a></li><li><a class="nav__link" href="/slack-message-parser/api/">API</a></li><li><a class="nav__link" href="/slack-message-parser/examples/">Examples</a></li><li><a class="nav__link" href="https://github.com/pocka/slack-message-parser">GitHub</a></li></ul></nav><div class="layout__header-fill  layout__header"></div><aside class="layout__toc"><div class="toc__root"><nav class="toc"><ol class="toc-level toc-level-1"><li class="toc-item toc-item-h1"><a class="toc-link toc-link-h1" href="#installation">Installation</a><ol class="toc-level toc-level-2"><li class="toc-item toc-item-h2"><a class="toc-link toc-link-h2" href="#nodejs">Node.js</a></li><li class="toc-item toc-item-h2"><a class="toc-link toc-link-h2" href="#deno">Deno</a></li><li class="toc-item toc-item-h2"><a class="toc-link toc-link-h2" href="#browser">Browser</a></li></ol></li></ol></nav></div></aside><main class="layout__main"><div class="markdown__root"><h1 id="installation">Installation</h1>
+<p>This library is available for Node.js, Deno, and browser (or other ESM environment).</p>
+<h2 id="nodejs">Node.js</h2>
+<p>Install <code>slack-message-parser</code> package hosted on NPM.</p>
+<pre class="language-sh"><code class="language-sh"><span class="token comment"># Use your package manager's install command</span>
+<span class="token function">npm</span> i slack-message-parser
+</code></pre>
+<pre class="language-ts"><code class="language-ts"><span class="token keyword module">import</span> <span class="token imports"><span class="token punctuation">{</span> parse <span class="token punctuation">}</span></span> <span class="token keyword module">from</span> <span class="token string">"slack-message-parser"</span><span class="token punctuation">;</span>
+
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">dir</span><span class="token punctuation">(</span><span class="token function">parse</span><span class="token punctuation">(</span><span class="token string">"Slack *message* ~to~ _parse_"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<h2 id="deno">Deno</h2>
+<p>This library is not registered to <code>deno.land</code> yet.
+Please use <code>raw.githubusercontent.com</code> for a moment.</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword module">import</span> <span class="token imports"><span class="token punctuation">{</span> parse <span class="token punctuation">}</span></span> <span class="token keyword module">from</span> <span class="token string">"https://raw.githubusercontent.com/pocka/slack-message-parser/master/mod.ts"</span><span class="token punctuation">;</span>
+
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">dir</span><span class="token punctuation">(</span><span class="token function">parse</span><span class="token punctuation">(</span><span class="token string">"Slack *message* ~to~ _parse_"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<h2 id="browser">Browser</h2>
+<p>Use NPM-to-ESM service such as <a href="https://www.skypack.dev/">Skypack</a>.</p>
+<pre class="language-js"><code class="language-js"><span class="token keyword module">import</span> <span class="token imports"><span class="token punctuation">{</span> parse <span class="token punctuation">}</span></span> <span class="token keyword module">from</span> <span class="token string">"https://cdn.skypack.dev/slack-message-parser@^2.0.2"</span><span class="token punctuation">;</span>
+
+<span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">dir</span><span class="token punctuation">(</span><span class="token function">parse</span><span class="token punctuation">(</span><span class="token string">"Slack *message* ~to~ _parse_"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div></main>
+        
+      </body>
+    </html>
+  
