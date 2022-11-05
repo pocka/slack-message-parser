@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Shipped code has been changed from ES2015 to ES2021. Node.js >=16 is required.
+
 ### Added
 
 - ESM builds.

@@ -8,6 +8,10 @@ await build({
   shims: {
     deno: true,
   },
+  compilerOptions: {
+    lib: ["es2021"],
+    target: "ES2021",
+  },
   package: {
     "name": "slack-message-parser",
     version: Deno.args[0],

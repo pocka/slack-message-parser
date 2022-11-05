@@ -12,6 +12,8 @@ Parser library for [Slack message format](https://api.slack.com/docs/message-for
 
 ## Install
 
+Requires Node.js >=v16.
+
 ```sh
 npm i --save slack-message-parser
 # yarn add slack-message-parser
