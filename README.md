@@ -1,6 +1,7 @@
 # slack-message-parser
 
 [![npm](https://img.shields.io/npm/v/slack-message-parser)](https://www.npmjs.com/package/slack-message-parser)
+[![Deno](https://deno.land/badge/slack_message_parser/version)](https://deno.land/x/slack_message_parser)
 [![Lint Workflow Status](https://img.shields.io/github/workflow/status/pocka/slack-message-parser/Lint%20files?label=lint)](https://github.com/pocka/slack-message-parser/actions/workflows/lint.yml)
 [![Test Workflow Status](https://img.shields.io/github/workflow/status/pocka/slack-message-parser/Test%20and%20collect%20coverage?label=test)](https://github.com/pocka/slack-message-parser/actions/workflows/test.yml)
 [![GitHub Workflow Status](https://img.shields.io/github/workflow/status/pocka/slack-message-parser/Deploy%20Docs?label=docs%20deploy)](https://github.com/pocka/slack-message-parser/actions/workflows/docs-deploy.yml)
