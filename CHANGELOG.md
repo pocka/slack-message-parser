@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [3.0.0] - 2022-11-06
+
 ### Changed
 
 - Shipped code has been changed from ES2015 to ES2021. Node.js >=16 is required.
@@ -71,5 +73,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Treat comma and dot as separator (Issue: [#4](https://github.com/pocka/slack-message-parser/issues/4), PR: [#5](https://github.com/pocka/slack-message-parser/pull/5)).
 
-[Unreleased]: https://github.com/pocka/slack-message-parser/compare/v2.0.2...HEAD
+[Unreleased]: https://github.com/pocka/slack-message-parser/compare/v3.0.0...HEAD
+[3.0.0]: https://github.com/pocka/slack-message-parser/compare/v2.0.2...v3.0.0
 [2.0.2]: https://github.com/pocka/slack-message-parser/compare/v2.0.1...v2.0.2

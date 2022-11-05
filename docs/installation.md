@@ -19,11 +19,10 @@ console.dir(parse("Slack *message* ~to~ _parse_"));
 
 ## Deno
 
-This library is not registered to `deno.land` yet.
-Please use `raw.githubusercontent.com` for a moment.
+Import from `https://deno.land/x/slack_message_parser@<VERSION>/mod.ts`.
 
 ```js
-import { parse } from "https://raw.githubusercontent.com/pocka/slack-message-parser/master/mod.ts";
+import { parse } from "https://deno.land/x/slack_message_parser@3.0.0/mod.ts";
 
 console.dir(parse("Slack *message* ~to~ _parse_"));
 ```
@@ -33,7 +32,7 @@ console.dir(parse("Slack *message* ~to~ _parse_"));
 Use NPM-to-ESM service such as [Skypack](https://www.skypack.dev/).
 
 ```js
-import { parse } from "https://cdn.skypack.dev/slack-message-parser@^2.0.2";
+import { parse } from "https://cdn.skypack.dev/slack-message-parser@^3.0.0";
 
 console.dir(parse("Slack *message* ~to~ _parse_"));
 ```
