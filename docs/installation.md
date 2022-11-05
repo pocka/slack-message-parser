@@ -22,7 +22,7 @@ console.dir(parse("Slack *message* ~to~ _parse_"));
 Import from `https://deno.land/x/slack_message_parser@<VERSION>/mod.ts`.
 
 ```js
-import { parse } from "https://deno.land/x/slack_message_parser@3.0.0/mod.ts";
+import { parse } from "https://deno.land/x/slack_message_parser@v3.0.0/mod.ts";
 
 console.dir(parse("Slack *message* ~to~ _parse_"));
 ```
