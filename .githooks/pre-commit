@@ -1,5 +1,8 @@
 #!/bin/sh
 
+# Abort the script execution when the command fails
+set -e
+
 gray="$(tput setaf 6)"
 nocolor="$(tput sgr0)"
 
