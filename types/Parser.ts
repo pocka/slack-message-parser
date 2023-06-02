@@ -1,9 +1,9 @@
 import { Node } from "./Node.ts";
 
-export type Parser = (
+export type Parser<T extends Node = Node> = (
   text: string,
   position: number,
   parseText: ParseText,
-) => [Node, number] | null;
+) => [T, number] | null;
 
 export type ParseText = (text: string) => Node[];

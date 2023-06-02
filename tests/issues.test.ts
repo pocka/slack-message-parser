@@ -7,6 +7,7 @@ import {
   code,
   emoji,
   italic,
+  quote,
   root,
   strike,
   text,
@@ -126,6 +127,28 @@ Deno.test(`#34 / parses bold formatting properly with various punctuation suffix
       bold([text("Y")]),
       text("/ "),
       bold([text("Y")]),
+    ]),
+  );
+});
+
+// https://github.com/pocka/slack-message-parser/issues/38
+Deno.test(`#38 / parse multiline quote without >>>`, () => {
+  const actual = parse(
+    "This is unquoted text\n&gt; This is quoted text\n&gt; This is still quoted text\nThis is unquoted text again",
+  );
+
+  assertEquals(
+    actual,
+    root([
+      text("This is unquoted text\n"),
+      {
+        ...quote([
+          text(" This is quoted text\n"),
+          text(" This is still quoted text"),
+        ], true),
+        source: "&gt; This is quoted text\n&gt; This is still quoted text\n",
+      },
+      text("This is unquoted text again"),
     ]),
   );
 });

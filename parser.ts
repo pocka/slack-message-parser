@@ -1,6 +1,6 @@
-import { NodeType } from "./types/Node.ts";
+import { type Node, NodeType, type Quote } from "./types/Node.ts";
 
-import { explicit, or, regexp, topOfLine } from "./combinator.ts";
+import { explicit, oneOrMore, or, regexp, topOfLine } from "./combinator.ts";
 
 const parseBold = explicit(
   regexp(
@@ -89,11 +89,19 @@ const parseStrike = explicit(
   ),
 );
 
-const parseSingleLineQuote = topOfLine(
-  regexp(/^&gt;(.*)(\n|$)/, (match, _text, position, parseText) => {
+const parseQuoteLine = topOfLine(
+  regexp(/^&gt;(.*)(\n&gt;|\n|$)/, (match, _text, position, parseText) => {
     const [matchedText, content] = match;
 
     const repeatedGt = content.match(/^((&gt;)+)(.*)$/);
+
+    // If the next line is also starts with ">", do not include the character
+    // (simulating RegExp's non-capturing group)
+    const source = matchedText.replace(/\n&gt;$/, "\n");
+
+    // `source` and `matchedText` are same unless the next line starts with ">"
+    // due to the above line removes the ">".
+    const isNextLineStartsWithGt = source !== matchedText;
 
     return [
       {
@@ -107,28 +115,39 @@ const parseSingleLineQuote = topOfLine(
             },
             ...parseText(repeatedGt[3]),
           ]
-          : parseText(content),
-        source: matchedText,
+          // Only the last LF could be a terminator character of quote.
+          // Non-last LFs should be parsed as well as `content`.
+          : parseText(isNextLineStartsWithGt ? content + "\n" : content),
+        source,
       },
-      position + matchedText.length,
+      position + source.length,
     ];
   }),
 );
 
-const parseMultilineQuote = topOfLine(
-  regexp(/^&gt;&gt;&gt;([\s\S]+)$/, (match, _text, position, parseText) => {
-    const [matchedText, content] = match;
+const parseQuote = or([
+  topOfLine(
+    regexp(/^&gt;&gt;&gt;([\s\S]+)$/, (match, _text, position, parseText) => {
+      const [matchedText, content] = match;
 
-    return [
-      {
-        type: NodeType.Quote,
-        children: parseText(content),
-        source: matchedText,
-      },
-      position + matchedText.length,
-    ];
+      return [
+        {
+          type: NodeType.Quote,
+          children: parseText(content),
+          source: matchedText,
+        },
+        position + matchedText.length,
+      ];
+    }),
+  ),
+  oneOrMore<Quote, Quote>(parseQuoteLine, (quotes) => {
+    return {
+      type: NodeType.Quote,
+      children: quotes.map((quote) => quote.children).flat(),
+      source: quotes.map((quote) => quote.source).join(""),
+    };
   }),
-);
+]);
 
 const parseEmoji = regexp(
   /^:([^:<`*#@!\s()$%]+):(:(skin-tone-.+?):)?/,
@@ -147,7 +166,7 @@ const parseEmoji = regexp(
   },
 );
 
-const parseLink = regexp(
+const parseLink = regexp<Node>(
   /^<([^\s<>][^\n<>]*?)(\|([^<>]+?))?>/,
   (match, _text, position, parseText) => {
     const [matchedText, link, _, label] = match;
@@ -209,8 +228,7 @@ export default or([
   parseCode,
   parseEmoji,
   parseItalic,
-  parseMultilineQuote,
-  parseSingleLineQuote,
+  parseQuote,
   parseLink,
   parseStrike,
 ]);
