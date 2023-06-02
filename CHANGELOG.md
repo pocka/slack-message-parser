@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [3.0.2] - 2023-06-03
+
+### Added
+
+- Support for multiline quote without `>>>`. (Issue: [#38](https://github.com/pocka/slack-message-parser/issues/38))
+
 ## [3.0.1] - 2023-04-15
 
 ### Fixed
@@ -79,7 +85,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Treat comma and dot as separator (Issue: [#4](https://github.com/pocka/slack-message-parser/issues/4), PR: [#5](https://github.com/pocka/slack-message-parser/pull/5)).
 
-[Unreleased]: https://github.com/pocka/slack-message-parser/compare/v3.0.1...HEAD
+[Unreleased]: https://github.com/pocka/slack-message-parser/compare/v3.0.2...HEAD
+[3.0.2]: https://github.com/pocka/slack-message-parser/compare/v3.0.1...v3.0.2
 [3.0.1]: https://github.com/pocka/slack-message-parser/compare/v3.0.0...v3.0.1
 [3.0.0]: https://github.com/pocka/slack-message-parser/compare/v2.0.2...v3.0.0
 [2.0.2]: https://github.com/pocka/slack-message-parser/compare/v2.0.1...v2.0.2
