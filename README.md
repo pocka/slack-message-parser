@@ -36,7 +36,7 @@ const tree = slackMessageParser("Slack *message* ~to~ _parse_");
 //     {
 //       type: NodeType.Text,
 //       text: "Slack ",
-// .     source: "Slack "
+//       source: "Slack "
 //     },
 //     {
 //       type: NodeType.Bold,
@@ -46,7 +46,7 @@ const tree = slackMessageParser("Slack *message* ~to~ _parse_");
 //           text: "message"
 //         }
 //       ],
-// .     source: "*message*"
+//       source: "*message*"
 //     },
 //     ...
 //   ],
